@@ -1,0 +1,18 @@
+
+# developer notes
+<!-- add a/an administration panel to later make things easier to update json files and to possibly apply/upload new images to the gallery while so trying to maintain the look of the site as well as to keep it nice & clean. -->
+<!-- add a panel for artist & leads to tag & post what they are currently working on while also making it notify the leads of any changes. -->
+<!-- make sure the panel for leads is equipped with a message board to inform those of anything that is important and a way for it to also foward to a discord channel. -->
+<!-- make sure sensitive information is well encrypted to prevent any data leakage while also trying to maintain a structure that can read and de-encrypt a key that only the master server knows that changes every 5 minutes -->
+<!-- NDA section for the future when that is needed which will be needed for developer side of things. Well NDRA, NON-DISCLOSURE AND RELEASE AGREEMENT -->
+<!-- A better communication application that is structured and designed for this studio only so we do not have to rely on third party software for communication. -->
+<!-- Database that'll eventually handle all the workflow for staff login info and make sure that it is well structured so that it cannot be backdoored so easily. -->
+<!-- A custom firewall security system that scans and checks for any access points, restricts them and alerts system administrators to quickly patch and lock down before anyone tries to gain access that isn't a verified source. -->
+<!-- A panel for partnered studios to communicate with the leads and CEO more easily and to be able to setup appointments and a system that can auto alert MATT for those appointments. -->
+<!-- Make sure the partnered panel is completely encrypted so no information can be leaked out and a way for them to use the studios custom communication app to get in touch with the leads & CEO securly. -->
+<!-- Make sure the partnered studios have a/an account premade for them and for their team to use. But to make sure that it'll require them to setup the password for the account so the system administrators don't have to. -->
+<!-- A panel for voice actors to upload their work and to communicate with leads. Their work will be uploaded to a private server when that time comes, instead of it being uploaded to a google drive. -->
+<!-- Some of the panels may not happen until in the future but they will be noted and designs will go underway to make sure that they are ready for when that time comes. -->
+
+# notes for MATT
+<!-- The studios LOGO in NON webp format... since discord converts the server icons to webp. This is for the website logo icon to keep its quality in tact and not be poor quality. -->
