@@ -24,6 +24,8 @@
 # for the future
 <!-- a dedicated server that is on location at the studio for non remote systems - will need to talk about this further more. -->
 <!-- (This would only be temporary until the server grid is expanded and more properly secure.) a cloud network for remote users that'll store files temporarly until they are transfered to the main on site server. -->
+<!-- a special room designed at the studio for non remote 3D environmental artist(s) so some can use VR headset to design so they can get a closer view and feel for the enviorment that they are working on. -->
+
 
 Reasons for most of this is because google collects certain data that they easily leave open for anyone to take like data miners which we don't need them trying to get information and possibly ruining the community of future plans for projects, This includes animations.
 
