@@ -18,7 +18,7 @@ document.querySelector('.cta-button').addEventListener('click', () => {
 // Load and display contacts and team members
 async function loadContactData() {
     try {
-        const response = await fetch('/data/contacts.json');
+        const response = await fetch('reaperfilms/data/contacts.json');
         const data = await response.json();
         
         // Display team members
