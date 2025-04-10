@@ -13,6 +13,17 @@
 <!-- Make sure the partnered studios have a/an account premade for them and for their team to use. But to make sure that it'll require them to setup the password for the account so the system administrators don't have to. -->
 <!-- A panel for voice actors to upload their work and to communicate with leads. Their work will be uploaded to a private server when that time comes, instead of it being uploaded to a google drive. -->
 <!-- Some of the panels may not happen until in the future but they will be noted and designs will go underway to make sure that they are ready for when that time comes. -->
+<!-- A lone server that contains backups of everything in case of system failure or rogue staff. -->
+<!-- A system that'll transfer files from cloud network to main on site server -->
 
 # notes for MATT
 <!-- The studios LOGO in NON webp format... since discord converts the server icons to webp. This is for the website logo icon to keep its quality in tact and not be poor quality. -->
+<!-- web server for the site and for it to be maintained by the IT & system administration but also supports what will be needed for future plans. -->
+<!-- domain for the website -->
+
+# for the future
+<!-- a dedicated server that is on location at the studio for non remote systems - will need to talk about this further more. -->
+<!-- (This would only be temporary until the server grid is expanded and more properly secure.) a cloud network for remote users that'll store files temporarly until they are transfered to the main on site server. -->
+
+Reasons for most of this is because google collects certain data that they easily leave open for anyone to take like data miners which we don't need them trying to get information and possibly ruining the community of future plans for projects, This includes animations.
+
