@@ -19,16 +19,16 @@
             ]
           },
           {
-            "id": "G-V",
-            "title": "Gore Ville",
-            "thumbnail": ".//images/H-R/Gore-Ville.png",
+            "id": "GV",
+            "title": "coming soon",
+            "thumbnail": ".//images/G-V/soon.png",
             "images": [
-              ".//images/H-R/dusty-jackson.png",
-              ".//images/H-R/ellie-simmons.png",
-              ".//images/H-R/maya.png",
-              ".//images/H-R/ollie.png",
-              ".//images/H-R/sam.png",
-              ".//images/H-R/venessa.png"
+              ".//images/G-V/dusty-jackson.png",
+              ".//images/G-V/ellie-simmons.png",
+              ".//images/G-V/maya.png",
+              ".//images/G-V/ollie.png",
+              ".//images/G-V/sam.png",
+              ".//images/G-V/venessa.png"
             ]
           }
         ]
