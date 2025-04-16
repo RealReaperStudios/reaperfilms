@@ -32,7 +32,7 @@ async function loadPortfolioData() {
                     <p>${category.name}</p>
                 `;
                 portfolioItem.addEventListener('click', () => {
-                    window.location.href = `/gallery.html#${category.id}`;
+                    window.location.href = `.//gallery.html#${category.id}`;
                 });
                 portfolioGrid.appendChild(portfolioItem);
             });
@@ -45,7 +45,7 @@ async function loadPortfolioData() {
 // Load and display contacts and team members
 async function loadContactData() {
     try {
-        const response = await fetch('/data/contacts.json');
+        const response = await fetch('.//data/contacts.json');
         const data = await response.json();
         
         // Display team members
