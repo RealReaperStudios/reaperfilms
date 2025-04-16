@@ -22,14 +22,18 @@ async function loadPortfolioData() {
         const data = await response.json();
         
         const portfolioGrid = document.getElementById('portfolioGrid');
+        portfolioGrid.innerHTML = ''; // Clear existing content
+        
         data.categories.forEach(category => {
             category.projects.forEach(project => {
                 const portfolioItem = document.createElement('div');
                 portfolioItem.className = 'portfolio-item';
                 portfolioItem.innerHTML = `
-                    <img src="${project.thumbnail}" alt="${project.title}" />
-                    <h3>${project.title}</h3>
-                    <p>${category.name}</p>
+                    <img src="${project.thumbnail}" alt="${project.title}">
+                    <div class="portfolio-item-content">
+                        <h3>${project.title}</h3>
+                        <p>${category.name}</p>
+                    </div>
                 `;
                 portfolioItem.addEventListener('click', () => {
                     window.location.href = `gallery.html#${category.id}`;
@@ -39,6 +43,31 @@ async function loadPortfolioData() {
         });
     } catch (error) {
         console.error('Error loading portfolio data:', error);
+        const portfolioGrid = document.getElementById('portfolioGrid');
+        portfolioGrid.innerHTML = '<p class="error-message">Failed to load portfolio items</p>';
+    }
+}
+
+// Copy email to clipboard and show feedback
+async function copyEmailToClipboard(email) {
+    try {
+        await navigator.clipboard.writeText(email);
+        
+        // Create and show the tooltip
+        const tooltip = document.createElement('div');
+        tooltip.className = 'copy-tooltip';
+        tooltip.textContent = 'Email copied!';
+        document.body.appendChild(tooltip);
+        
+        // Remove the tooltip after animation
+        setTimeout(() => {
+            tooltip.classList.add('fade-out');
+            setTimeout(() => {
+                document.body.removeChild(tooltip);
+            }, 300);
+        }, 2000);
+    } catch (err) {
+        console.error('Failed to copy email:', err);
     }
 }
 
@@ -56,8 +85,17 @@ async function loadContactData() {
             memberCard.innerHTML = `
                 <h4>${member.name}</h4>
                 <p>${member.role}</p>
-                <span class="email">${member.email}</span>
+                <span class="email" role="button" tabindex="0">${member.email}</span>
             `;
+            const emailSpan = memberCard.querySelector('.email');
+            if (member.email !== 'redacted') {
+                emailSpan.addEventListener('click', () => copyEmailToClipboard(member.email));
+                emailSpan.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') {
+                        copyEmailToClipboard(member.email);
+                    }
+                });
+            }
             teamList.appendChild(memberCard);
         });
 
@@ -68,8 +106,15 @@ async function loadContactData() {
             contactCard.className = 'contact-card';
             contactCard.innerHTML = `
                 <h4>${contact.name}</h4>
-                <span class="email">${contact.email}</span>
+                <span class="email" role="button" tabindex="0">${contact.email}</span>
             `;
+            const emailSpan = contactCard.querySelector('.email');
+            emailSpan.addEventListener('click', () => copyEmailToClipboard(contact.email));
+            emailSpan.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    copyEmailToClipboard(contact.email);
+                }
+            });
             contactsList.appendChild(contactCard);
         });
     } catch (error) {
