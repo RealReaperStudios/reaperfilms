@@ -3,7 +3,7 @@ let galleryData = null;
 
 async function loadGalleryData() {
     try {
-        const response = await fetch('/data/gallery.json');
+        const response = await fetch('.//data/gallery.json');
         galleryData = await response.json();
         renderCategories();
         if (galleryData.categories.length > 0) {
