@@ -1,14 +1,14 @@
 {
     "categories": [
       {
-        "id": "animation",
+        "id": "h-r",
         "name": "Haunted Roots",
-        "icon": "https://picsum.photos/200/200?random=1",
+        "icon": ".//images/H-R/Haunted-Roots.png",
         "projects": [
           {
             "id": "project1",
             "title": "Haunted Roots",
-            "thumbnail": "https://picsum.photos/400/300?random=1",
+            "thumbnail": ".//images/H-R/Haunted-Roots.png",
             "images": [
               ".//images/H-R/dusty-jackson.png",
               ".//images/H-R/ellie-simmons.png",
