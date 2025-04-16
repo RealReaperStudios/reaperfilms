@@ -18,7 +18,7 @@ document.querySelector('.cta-button').addEventListener('click', () => {
 // Load and display portfolio items
 async function loadPortfolioData() {
     try {
-        const response = await fetch('/data/gallery.json');
+        const response = await fetch('.//data/gallery.json');
         const data = await response.json();
         
         const portfolioGrid = document.getElementById('portfolioGrid');
