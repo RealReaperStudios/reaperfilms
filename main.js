@@ -15,10 +15,37 @@ document.querySelector('.cta-button').addEventListener('click', () => {
     });
 });
 
+// Load and display portfolio items
+async function loadPortfolioData() {
+    try {
+        const response = await fetch('/data/gallery.json');
+        const data = await response.json();
+        
+        const portfolioGrid = document.getElementById('portfolioGrid');
+        data.categories.forEach(category => {
+            category.projects.forEach(project => {
+                const portfolioItem = document.createElement('div');
+                portfolioItem.className = 'portfolio-item';
+                portfolioItem.innerHTML = `
+                    <img src="${project.thumbnail}" alt="${project.title}" />
+                    <h3>${project.title}</h3>
+                    <p>${category.name}</p>
+                `;
+                portfolioItem.addEventListener('click', () => {
+                    window.location.href = `/gallery.html#${category.id}`;
+                });
+                portfolioGrid.appendChild(portfolioItem);
+            });
+        });
+    } catch (error) {
+        console.error('Error loading portfolio data:', error);
+    }
+}
+
 // Load and display contacts and team members
 async function loadContactData() {
     try {
-        const response = await fetch('.//data/contacts.json');
+        const response = await fetch('/data/contacts.json');
         const data = await response.json();
         
         // Display team members
@@ -50,8 +77,11 @@ async function loadContactData() {
     }
 }
 
-// Load contacts when the page loads
-document.addEventListener('DOMContentLoaded', loadContactData);
+// Load data when the page loads
+document.addEventListener('DOMContentLoaded', () => {
+    loadPortfolioData();
+    loadContactData();
+});
 
 // Intersection Observer for scroll animations
 const observerOptions = {
