@@ -36,7 +36,7 @@ async function loadPortfolioData() {
                     </div>
                 `;
                 portfolioItem.addEventListener('click', () => {
-                    window.location.href = `.//gallery.html#${category.id}`;
+                    window.location.href = `gallery.html#${category.id}`;
                 });
                 portfolioGrid.appendChild(portfolioItem);
             });
