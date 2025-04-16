@@ -2,7 +2,7 @@
     "categories": [
       {
         "id": "animation",
-        "name": "Animation",
+        "name": "Haunted Roots",
         "icon": "https://picsum.photos/200/200?random=1",
         "projects": [
           {
@@ -13,33 +13,6 @@
               ".//images/H-R/dusty-jackson.png",
               ".//images/H-R/ellie-simmons.png",
               ".//images/H-R/maya.png"
-            ]
-          },
-          {
-            "id": "project2",
-            "title": "Project Two",
-            "thumbnail": "https://picsum.photos/400/300?random=2",
-            "images": [
-              "https://picsum.photos/800/600?random=21",
-              "https://picsum.photos/800/600?random=22",
-              "https://picsum.photos/800/600?random=23"
-            ]
-          }
-        ]
-      },
-      {
-        "id": "character-design",
-        "name": "Character Design",
-        "icon": "https://picsum.photos/200/200?random=2",
-        "projects": [
-          {
-            "id": "project3",
-            "title": "Project Three",
-            "thumbnail": "https://picsum.photos/400/300?random=3",
-            "images": [
-              "https://picsum.photos/800/600?random=31",
-              "https://picsum.photos/800/600?random=32",
-              "https://picsum.photos/800/600?random=33"
             ]
           }
         ]
