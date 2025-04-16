@@ -1,18 +1,21 @@
 {
     "categories": [
       {
-        "id": "h-r",
+        "id": "H-R",
         "name": "Haunted Roots",
         "icon": ".//images/H-R/Haunted-Roots.png",
         "projects": [
           {
-            "id": "project1",
+            "id": "H-R",
             "title": "Haunted Roots",
             "thumbnail": ".//images/H-R/Haunted-Roots.png",
             "images": [
               ".//images/H-R/dusty-jackson.png",
               ".//images/H-R/ellie-simmons.png",
-              ".//images/H-R/maya.png"
+              ".//images/H-R/maya.png",
+              ".//images/H-R/ollie.png",
+              ".//images/H-R/sam.png",
+              ".//images/H-R/venessa.png"
             ]
           }
         ]
