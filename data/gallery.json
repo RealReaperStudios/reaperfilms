@@ -7,12 +7,12 @@
         "projects": [
           {
             "id": "project1",
-            "title": "Project One",
+            "title": "Haunted Roots",
             "thumbnail": "https://picsum.photos/400/300?random=1",
             "images": [
-              "https://picsum.photos/800/600?random=11",
-              "https://picsum.photos/800/600?random=12",
-              "https://picsum.photos/800/600?random=13"
+              ".//images/H-R/dusty-jackson.png",
+              ".//images/H-R/ellie-simmons.png",
+              ".//images/H-R/maya.png"
             ]
           },
           {
