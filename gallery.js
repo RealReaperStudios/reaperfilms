@@ -77,65 +77,53 @@ function showCategory(categoryId) {
     
     if (category && Array.isArray(category.projects)) {
         category.projects.forEach(project => {
-            const galleryItem = document.createElement('div');
-            galleryItem.className = 'gallery-item';
-            galleryItem.setAttribute('data-title', project.title);
-            
-            const img = document.createElement('img');
-            img.src = project.thumbnail;
-            img.alt = project.title;
-            img.loading = 'lazy';
-            
-            galleryItem.appendChild(img);
-            galleryItem.addEventListener('click', () => showProjectImages(project));
-            galleryGrid.appendChild(galleryItem);
+            if (Array.isArray(project.images)) {
+                project.images.forEach(imageUrl => {
+                    const galleryItem = document.createElement('div');
+                    galleryItem.className = 'gallery-item';
+                    galleryItem.setAttribute('data-title', project.title);
+                    
+                    const img = document.createElement('img');
+                    img.src = imageUrl;
+                    img.alt = project.title;
+                    img.loading = 'lazy';
+                    
+                    galleryItem.appendChild(img);
+                    galleryItem.addEventListener('click', () => {
+                        showImage(imageUrl, project.title);
+                    });
+                    galleryGrid.appendChild(galleryItem);
+                });
+            }
         });
     }
 }
 
-function showProjectImages(project) {
-    if (!project || !Array.isArray(project.images) || project.images.length === 0) return;
-    
+function showImage(imageUrl, title) {
     const lightbox = document.getElementById('lightbox');
     const lightboxImage = document.getElementById('lightboxImage');
     if (!lightbox || !lightboxImage) return;
     
-    let currentImageIndex = 0;
-    
-    function showImage(index) {
-        lightboxImage.src = project.images[index];
-        lightboxImage.alt = `${project.title} - Image ${index + 1}`;
+    function closeLightbox() {
+        lightbox.classList.remove('active');
+        document.removeEventListener('keydown', handleKeyPress);
     }
     
     function handleKeyPress(e) {
         if (e.key === 'Escape') {
             closeLightbox();
-        } else if (e.key === 'ArrowRight') {
-            currentImageIndex = (currentImageIndex + 1) % project.images.length;
-            showImage(currentImageIndex);
-        } else if (e.key === 'ArrowLeft') {
-            currentImageIndex = (currentImageIndex - 1 + project.images.length) % project.images.length;
-            showImage(currentImageIndex);
         }
     }
     
-    function closeLightbox() {
-        lightbox.classList.remove('active');
-        document.removeEventListener('keydown', handleKeyPress);
-        lightboxImage.removeEventListener('click', nextImage);
-    }
+    // Set image
+    lightboxImage.src = imageUrl;
+    lightboxImage.alt = title;
     
-    function nextImage() {
-        currentImageIndex = (currentImageIndex + 1) % project.images.length;
-        showImage(currentImageIndex);
-    }
-    
-    showImage(currentImageIndex);
+    // Show lightbox
     lightbox.classList.add('active');
     
     // Add event listeners
     document.addEventListener('keydown', handleKeyPress);
-    lightboxImage.addEventListener('click', nextImage);
     
     const closeButton = lightbox.querySelector('.lightbox-close');
     if (closeButton) {
