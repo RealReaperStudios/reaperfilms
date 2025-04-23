@@ -1,38 +1,20 @@
 {
   "contacts": [
     {
-      "name": "John Smith",
-      "email": "john@creativestudio.com"
-    },
-    {
-      "name": "Sarah Johnson",
-      "email": "sarah@creativestudio.com"
-    },
-    {
-      "name": "Michael Brown",
-      "email": "michael@creativestudio.com"
+      "name": "Matt Jonas",
+      "email": "mattjonas.reaperstudios@gmail.com"
     }
   ],
   "team": [
     {
-      "name": "Emma Wilson",
-      "role": "Creative Director",
-      "email": "emma@creativestudio.com"
-    },
-    {
-      "name": "David Chen",
-      "role": "Lead Designer",
-      "email": "david@creativestudio.com"
-    },
-    {
-      "name": "Lisa Anderson",
-      "role": "Project Manager",
-      "email": "lisa@creativestudio.com"
+      "name": "Matt Jonas",
+      "role": "CEO",
+      "email": "mattjonas.reaperstudios@gmail.com"
     },
     {
       "name": "James H",
       "role": "Tech/Developer",
-      "email": "redacted"
+      "email": "twilightgamepro@gmail.com"
     }
   ]
 }
