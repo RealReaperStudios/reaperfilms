@@ -19,32 +19,70 @@ document.querySelector('.cta-button').addEventListener('click', () => {
 async function loadPortfolioData() {
     try {
         const response = await fetch('.//data/gallery.json');
+        if (!response.ok) {
+            throw new Error('Failed to load portfolio data');
+        }
         const data = await response.json();
         
+        if (!data || !data.categories || !Array.isArray(data.categories)) {
+            throw new Error('Invalid portfolio data format');
+        }
+        
         const portfolioGrid = document.getElementById('portfolioGrid');
+        if (!portfolioGrid) return;
+        
         portfolioGrid.innerHTML = ''; // Clear existing content
         
+        // Create a document fragment for better performance
+        const fragment = document.createDocumentFragment();
+        
         data.categories.forEach(category => {
+            if (!category.projects || !Array.isArray(category.projects)) return;
+            
             category.projects.forEach(project => {
                 const portfolioItem = document.createElement('div');
                 portfolioItem.className = 'portfolio-item';
-                portfolioItem.innerHTML = `
-                    <img src="${project.thumbnail}" alt="${project.title}">
-                    <div class="portfolio-item-content">
-                        <h3>${project.title}</h3>
-                        <p>${category.name}</p>
-                    </div>
-                `;
+                
+                // Create image element
+                const img = document.createElement('img');
+                img.src = project.thumbnail;
+                img.alt = project.title;
+                img.loading = 'lazy';
+                
+                // Create content container
+                const content = document.createElement('div');
+                content.className = 'portfolio-item-content';
+                
+                // Create title and category
+                const title = document.createElement('h3');
+                title.textContent = project.title;
+                
+                const categoryName = document.createElement('p');
+                categoryName.textContent = category.name;
+                
+                // Assemble the elements
+                content.appendChild(title);
+                content.appendChild(categoryName);
+                portfolioItem.appendChild(img);
+                portfolioItem.appendChild(content);
+                
+                // Add click handler
                 portfolioItem.addEventListener('click', () => {
-                    window.location.href = `gallery.html#${category.id}`;
+                    window.location.href = `/gallery.html#${category.id}`;
                 });
-                portfolioGrid.appendChild(portfolioItem);
+                
+                fragment.appendChild(portfolioItem);
             });
         });
+        
+        portfolioGrid.appendChild(fragment);
+        
     } catch (error) {
         console.error('Error loading portfolio data:', error);
         const portfolioGrid = document.getElementById('portfolioGrid');
-        portfolioGrid.innerHTML = '<p class="error-message">Failed to load portfolio items</p>';
+        if (portfolioGrid) {
+            portfolioGrid.innerHTML = '<p class="error-message">Failed to load portfolio items. Please try again later.</p>';
+        }
     }
 }
 
@@ -75,50 +113,69 @@ async function copyEmailToClipboard(email) {
 async function loadContactData() {
     try {
         const response = await fetch('.//data/contacts.json');
+        if (!response.ok) {
+            throw new Error('Failed to load contact data');
+        }
         const data = await response.json();
+        
+        if (!data || !data.team || !data.contacts) {
+            throw new Error('Invalid contact data format');
+        }
         
         // Display team members
         const teamList = document.getElementById('team-list');
-        data.team.forEach(member => {
-            const memberCard = document.createElement('div');
-            memberCard.className = 'contact-card';
-            memberCard.innerHTML = `
-                <h4>${member.name}</h4>
-                <p>${member.role}</p>
-                <span class="email" role="button" tabindex="0">${member.email}</span>
-            `;
-            const emailSpan = memberCard.querySelector('.email');
-            if (member.email !== 'redacted') {
-                emailSpan.addEventListener('click', () => copyEmailToClipboard(member.email));
-                emailSpan.addEventListener('keypress', (e) => {
-                    if (e.key === 'Enter') {
-                        copyEmailToClipboard(member.email);
-                    }
-                });
-            }
-            teamList.appendChild(memberCard);
-        });
+        if (teamList && Array.isArray(data.team)) {
+            teamList.innerHTML = '';
+            data.team.forEach(member => {
+                const memberCard = document.createElement('div');
+                memberCard.className = 'contact-card';
+                memberCard.innerHTML = `
+                    <h4>${member.name}</h4>
+                    <p>${member.role}</p>
+                    <span class="email" role="button" tabindex="0">${member.email}</span>
+                `;
+                const emailSpan = memberCard.querySelector('.email');
+                if (member.email !== 'redacted') {
+                    emailSpan.addEventListener('click', () => copyEmailToClipboard(member.email));
+                    emailSpan.addEventListener('keypress', (e) => {
+                        if (e.key === 'Enter') {
+                            copyEmailToClipboard(member.email);
+                        }
+                    });
+                }
+                teamList.appendChild(memberCard);
+            });
+        }
 
         // Display contacts
         const contactsList = document.getElementById('contacts-list');
-        data.contacts.forEach(contact => {
-            const contactCard = document.createElement('div');
-            contactCard.className = 'contact-card';
-            contactCard.innerHTML = `
-                <h4>${contact.name}</h4>
-                <span class="email" role="button" tabindex="0">${contact.email}</span>
-            `;
-            const emailSpan = contactCard.querySelector('.email');
-            emailSpan.addEventListener('click', () => copyEmailToClipboard(contact.email));
-            emailSpan.addEventListener('keypress', (e) => {
-                if (e.key === 'Enter') {
-                    copyEmailToClipboard(contact.email);
-                }
+        if (contactsList && Array.isArray(data.contacts)) {
+            contactsList.innerHTML = '';
+            data.contacts.forEach(contact => {
+                const contactCard = document.createElement('div');
+                contactCard.className = 'contact-card';
+                contactCard.innerHTML = `
+                    <h4>${contact.name}</h4>
+                    <span class="email" role="button" tabindex="0">${contact.email}</span>
+                `;
+                const emailSpan = contactCard.querySelector('.email');
+                emailSpan.addEventListener('click', () => copyEmailToClipboard(contact.email));
+                emailSpan.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') {
+                        copyEmailToClipboard(contact.email);
+                    }
+                });
+                contactsList.appendChild(contactCard);
             });
-            contactsList.appendChild(contactCard);
-        });
+        }
     } catch (error) {
         console.error('Error loading contact data:', error);
+        ['team-list', 'contacts-list'].forEach(id => {
+            const element = document.getElementById(id);
+            if (element) {
+                element.innerHTML = '<p class="error-message">Failed to load contact information. Please try again later.</p>';
+            }
+        });
     }
 }
 
