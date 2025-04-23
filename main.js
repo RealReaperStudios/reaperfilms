@@ -68,7 +68,7 @@ async function loadPortfolioData() {
                 
                 // Add click handler
                 portfolioItem.addEventListener('click', () => {
-                    window.location.href = `/gallery.html#${category.id}`;
+                    window.location.href = `.//gallery.html#${category.id}`;
                 });
                 
                 fragment.appendChild(portfolioItem);
