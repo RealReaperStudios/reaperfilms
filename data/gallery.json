@@ -17,18 +17,20 @@
               ".//images/H-R/sam.png",
               ".//images/H-R/venessa.png"
             ]
-          },
+          }
+        ]
+      },
+      {
+        "id": "G-V",
+        "name": "Soon",
+        "icon": ".//images/G-V/G-V.png",
+        "projects": [
           {
-            "id": "GV",
-            "title": "coming soon",
-            "thumbnail": ".//images/G-V/soon.png",
+            "id": "G-V",
+            "title": "soon",
+            "thumbnail": ".//images/G-V/place-holder.png",
             "images": [
-              ".//images/G-V/soon.png",
-              ".//images/G-V/soon.png",
-              ".//images/G-V/soon.png",
-              ".//images/G-V/soon.png",
-              ".//images/G-V/soon.png",
-              ".//images/G-V/soon.png"
+              ".//images/G-V/place-holder.png"
             ]
           }
         ]
