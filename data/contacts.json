@@ -2,19 +2,34 @@
   "contacts": [
     {
       "name": "Matt Jonas",
-      "email": "mattjonas.reaperstudios@gmail.com"
+      "email": "mattjonas.reaperstudios@gmail.com Discord: bldzgaming"
     }
   ],
   "team": [
     {
       "name": "Matt Jonas",
       "role": "CEO",
-      "email": "mattjonas.reaperstudios@gmail.com"
+      "email": "mattjonas.reaperstudios@gmail.com Discord: bldzgaming"
+    },
+    {
+      "name": "Scount",
+      "role": "Co-Founder",
+      "email": "Discord: scout0874_11870"
+    },
+    {
+      "name": "Naya",
+      "role": "Lead Artist & Producer",
+      "email": "Discord: starrykitty013"
+    },
+    {
+      "name": "Kai",
+      "role": "Lead environment artist",
+      "email": "Discord: lilchronkron"
     },
     {
       "name": "James H",
       "role": "Tech/Developer",
-      "email": "twilightgamepro@gmail.com"
+      "email": "business email: jamesh.cobaltforgestudios@protonmail.com Discord: ragingflamesofficial"
     }
   ]
 }
