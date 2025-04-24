@@ -1,14 +1,17 @@
 :root {
-    --primary-color: #0ff;
-    --primary-glow: #0ff8;
-    --background-dark: #1a1a1a;
-    --darker-bg: #111111;
-    --text-color: #fff;
-    --text-muted: #888;
-    --card-bg: #222;
+    --primary-color: #e61e25;
+    --primary-glow: rgba(230, 30, 37, 0.5);
+    --secondary-color: #4a0f11;
+    --accent-color: #8b0000;
+    --background-dark: #0a0a0f;
+    --darker-bg: #050507;
+    --text-color: #ffffff;
+    --text-muted: #8a8a8a;
+    --card-bg: rgba(20, 20, 25, 0.95);
     --spacing: 2rem;
     --neon-shadow: 0 0 10px var(--primary-glow),
                    0 0 20px var(--primary-glow);
+    --demonic-gradient: linear-gradient(45deg, var(--accent-color), var(--primary-color));
 }
 
 * {
@@ -41,7 +44,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(17, 17, 17, 0.95);
+    background: rgba(5, 5, 7, 0.95);
     backdrop-filter: blur(10px);
     z-index: 1000;
     border-bottom: 1px solid var(--primary-color);
@@ -92,7 +95,7 @@ body {
     height: 2px;
     bottom: -5px;
     left: 0;
-    background-color: var(--primary-color);
+    background: var(--demonic-gradient);
     box-shadow: var(--neon-shadow);
     transition: width 0.3s ease;
 }
@@ -127,7 +130,7 @@ body {
     right: 0;
     bottom: 0;
     background: radial-gradient(circle at center, var(--primary-glow) 0%, transparent 70%);
-    opacity: 0.1;
+    opacity: 0.15;
     z-index: 0;
 }
 
@@ -171,7 +174,7 @@ body {
     left: 0;
     width: 0;
     height: 100%;
-    background: var(--primary-color);
+    background: var(--demonic-gradient);
     transition: width 0.3s ease;
     z-index: -1;
 }
@@ -181,8 +184,9 @@ body {
 }
 
 .cta-button:hover {
-    color: var(--darker-bg);
+    color: var(--text-color);
     box-shadow: var(--neon-shadow);
+    border-color: transparent;
 }
 
 /* Work Section */
@@ -213,7 +217,7 @@ body {
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
-    border: 1px solid var(--primary-color);
+    border: 1px solid var(--accent-color);
     position: relative;
     cursor: pointer;
 }
@@ -246,14 +250,17 @@ body {
     height: 250px;
     object-fit: cover;
     transition: all 0.3s ease;
+    filter: brightness(0.9);
 }
 
 .portfolio-item:hover img {
     transform: scale(1.05);
+    filter: brightness(1);
 }
 
 .portfolio-item-content {
     padding: 1.5rem;
+    background: linear-gradient(to top, var(--card-bg), transparent);
 }
 
 .portfolio-item h3 {
@@ -316,13 +323,14 @@ body {
     padding: 2rem;
     background: var(--card-bg);
     border-radius: 15px;
-    border: 1px solid var(--primary-color);
+    border: 1px solid var(--accent-color);
     transition: all 0.3s ease;
 }
 
 .stat:hover {
     box-shadow: var(--neon-shadow);
     transform: translateY(-5px);
+    border-color: var(--primary-color);
 }
 
 .stat h3 {
@@ -371,7 +379,7 @@ body {
     border-radius: 15px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     text-align: left;
-    border: 1px solid var(--primary-color);
+    border: 1px solid var(--accent-color);
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
@@ -384,7 +392,7 @@ body {
     left: 0;
     width: 4px;
     height: 100%;
-    background: var(--primary-color);
+    background: var(--demonic-gradient);
     box-shadow: var(--neon-shadow);
     transition: all 0.3s ease;
 }
@@ -397,6 +405,7 @@ body {
 .contact-card:hover {
     box-shadow: 0 0 15px var(--primary-glow);
     transform: translateX(5px);
+    border-color: var(--primary-color);
 }
 
 .contact-card h4 {
@@ -434,8 +443,8 @@ body {
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
-    background: var(--primary-color);
-    color: var(--darker-bg);
+    background: var(--demonic-gradient);
+    color: var(--text-color);
     padding: 0.5rem 1rem;
     border-radius: 20px;
     font-size: 0.9rem;
@@ -464,7 +473,7 @@ footer::before {
     left: 0;
     right: 0;
     height: 1px;
-    background: var(--primary-color);
+    background: var(--demonic-gradient);
     box-shadow: var(--neon-shadow);
 }
 
